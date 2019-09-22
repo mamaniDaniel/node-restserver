@@ -14,7 +14,7 @@ app.get('/usuario', function (req, res) {
     limite = Number(limite);
 
     //Usuario: schema de mongodb
-    Usuario.find({estado: true,email: "Test5@gmail.com"})
+    Usuario.find({estado: true}) //aca dentro van las codiciones de busqueda
         .skip(desde)  //me salteo 
         .limit(limite) //solo me devuelvo 5
         .exec( (err, usuarios) => {
@@ -25,7 +25,7 @@ app.get('/usuario', function (req, res) {
                 });
             }
             
-            Usuario.count({estado: true,email: "Test5@gmail.com"},(err,total) => {
+            Usuario.countDocuments({estado: true},(err,total) => {//aca dentro van las codiciones de busqueda, las mismas que arriba
                 res.json({
                     ok: true,
                     cuantos: total,
