@@ -5,7 +5,9 @@ const app = express();
 const bcrypt = require('bcrypt');
 const _ = require('underscore');
 
-app.get('/usuario', function (req, res) {
+const { verificaToken, verificaAdminRole } = require('../middlewares/autenticacion');
+
+app.get('/usuario', verificaToken , function (req, res) {
 
     let desde = req.query.desde || 0; //todo validar que sea numero
     desde = Number(desde) //req.query es String
@@ -36,7 +38,7 @@ app.get('/usuario', function (req, res) {
         })
 })
   
-app.post('/usuario', function (req, res) {
+app.post('/usuario',[verificaToken, verificaAdminRole], function (req, res) {
     let body = req.body;
 
     let usuario = new Usuario({
@@ -61,7 +63,7 @@ app.post('/usuario', function (req, res) {
    
 })
   
-app.put('/usuario/:id', function (req, res) {
+app.put('/usuario/:id',[verificaToken, verificaAdminRole] , function (req, res) {
     let id = req.params.id;
     //de todo el body solo quiero los campos que estan en el array 
     //usamos underscore para usar la funcion pick
@@ -87,7 +89,7 @@ app.put('/usuario/:id', function (req, res) {
     })
 })
   
-app.delete('/usuario/:id', function (req, res) {
+app.delete('/usuario/:id',[] , function (req, res) {
     let id = req.params.id;
 
     //eliminamos cambiando el estado.No eliminamos el registro
