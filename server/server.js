@@ -12,8 +12,11 @@ app.use(bodyParser.urlencoded({ extended: false }))
  
 // parse application/json
 app.use(bodyParser.json())
-app.use ( require('./routes/usuario'));
+//TODO: me puedo llevar el body parser al archivo config.js
 
+
+app.use ( require('./routes/index'));
+//A: de este archivo salen todas las rutas
 
 mongoose.connect(process.env.URLDB,{
     useNewUrlParser: true,
