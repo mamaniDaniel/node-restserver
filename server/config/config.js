@@ -18,7 +18,7 @@ process.env.NODE_ENV = process.env.NODE_ENV || 'dev';
 //60 minutos
 //24 horas
 //30 dias
-process.env.CADUCIDAD_TOKEN = 60 * 60 * 24 * 30;
+process.env.CADUCIDAD_TOKEN = ( 60 * 60 * 24 * 30);
 
 
 // =========================================
@@ -38,5 +38,6 @@ if (process.env.NODE_ENV === 'dev'){
     urlDB = 'mongodb://localhost:27017/cafe';
 }else{
     urlDB = process.env.MONGO_URI;
+    //A: este es el url a mi base de datos en mongo atlas, la tengo escondida en una variable global en mi HEROKU
 }
 process.env.URLDB = urlDB;

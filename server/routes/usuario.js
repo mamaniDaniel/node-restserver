@@ -89,7 +89,7 @@ app.put('/usuario/:id',[verificaToken, verificaAdminRole] , function (req, res) 
     })
 })
   
-app.delete('/usuario/:id',[] , function (req, res) {
+app.delete('/usuario/:id',[verificaToken, verificaAdminRole] , function (req, res) {
     let id = req.params.id;
 
     //eliminamos cambiando el estado.No eliminamos el registro
