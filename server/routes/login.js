@@ -21,7 +21,7 @@ app.post('/login', (req, res) => {
         if(err){
             return res.status(500).json({
                 ok:false,
-                err
+                err: err || 'error en la base de datos'
             });
         }
         
@@ -86,7 +86,7 @@ async function verify( token ) {
 app.post('/google', async (req, res) => {
 
     let token = req.body.idtoken;
-    
+    //TODO: sino me envian nada en req.body.idtoken se rompe todo el codigo
     let googleUser = await verify( token )
         .catch( e=> {
             res.status(403).json({
@@ -94,7 +94,8 @@ app.post('/google', async (req, res) => {
                 err: e
             })
         })
-
+    
+    console.log("Google user ENTREEEE: " , googleUser)
     Usuario.findOne ({email: googleUser.email}, (err, usuarioDB) =>{
         if(err){
             return res.status(500).json({
