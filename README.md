@@ -11,5 +11,7 @@ Utilize email y contraseña , la cual fue encriptada con la libreria bcrypt. y d
 #### Google Sing In :
 utilize el servicio que preste google para logearse a travez de Gmail, y de esta manera tener otra manera de crear nuevos usuarios con la informacion que me devuelve la api
 
+## Documentacion de hecha con POSTMAN:
+https://documenter.getpostman.com/view/6247100/SW15yc7k?version=latest#9a17d683-59f5-4afd-90ff-c8b95614ad81
 
 me falta terminar este README y contarte como me arme la base de datos.
