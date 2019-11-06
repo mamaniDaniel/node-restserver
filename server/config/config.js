@@ -41,3 +41,8 @@ if (process.env.NODE_ENV === 'dev'){
     //A: este es el url a mi base de datos en mongo atlas, la tengo escondida en una variable global en mi HEROKU
 }
 process.env.URLDB = urlDB;
+
+// =========================================
+// Google Client ID
+// ==========================================
+process.env.CLIENT_ID = process.env.CLIENT_ID || '1072934725453-4l15kooephsbtupfmht7orpbjd6n93vh.apps.googleusercontent.com';
