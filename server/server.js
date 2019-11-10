@@ -23,7 +23,8 @@ app.use( express.static( path.resolve (__dirname ,'../public') ));
 
 mongoose.connect(process.env.URLDB,{
     useNewUrlParser: true,
-    useUnifiedTopology: true  
+    useUnifiedTopology: true,
+    useFindAndModify: false
 }, (err, res) =>{
     if( err ) throw err;
     console.log('base da datos ONLINE');
